@@ -10,10 +10,10 @@ function startGame() {
     start.classList.add('hide');
 }
 
-function startRun() {
-    console.log('start');
+function startRun(event) {
+    event.preventDefault();
 }
 
-function stopRun() {
-    console.log('stop');
+function stopRun(event) {
+    event.preventDefault();
 }
