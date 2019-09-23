@@ -1,6 +1,7 @@
 const score = document.querySelector('.score'),
     start = document.querySelector('.start'),
-    gameArea = document.querySelector('.gameArea');
+    gameArea = document.querySelector('.gameArea'),
+    car = document.createElement('div');
 
 start.addEventListener('click', startGame);
 document.addEventListener('keydown', startRun);
@@ -25,7 +26,7 @@ function startGame() {
 }
 function playGame() {
     console.log('Play game!');
-    if(setting.start === true){
+    if(setting.start){
         requestAnimationFrame(playGame); //recursion
     }
 
