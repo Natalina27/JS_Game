@@ -22,6 +22,7 @@ const setting = {
 function startGame() {
     start.classList.add('hide');
     setting.start = true;
+    gameArea.appendChild(car);
     requestAnimationFrame(playGame);
 }
 function playGame() {
