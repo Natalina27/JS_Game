@@ -12,15 +12,32 @@ const keys = {
     ArrowRight: false,
     ArrowLeft: false
 };
+const setting = {
+    start: false,
+    score: 0,
+    speed: 3
+};
 
 function startGame() {
     start.classList.add('hide');
+    setting.start = true;
+    requestAnimationFrame(playGame);
 }
+function playGame() {
+    console.log('Play game!');
+    if(setting.start === true){
+        requestAnimationFrame(playGame); //recursion
+    }
 
+}
 function startRun(event) {
     event.preventDefault();
+    keys[event.key] = true;
 }
 
 function stopRun(event) {
     event.preventDefault();
+    keys[event.key] = false;
 }
+
+
