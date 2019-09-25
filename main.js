@@ -124,7 +124,7 @@ function moveEnemy() {
             carRect.bottom >= enemyRect.top){
             setting.start = false;
             start.classList.remove('hide');
-            score.style.top = start.offsetHeight;//scores after accident
+            start.style.top = score.offsetHeight;//scores after accident
         }
         item.y += setting.speed / 2;
         item.style.top = item.y + 'px';
