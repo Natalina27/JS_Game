@@ -31,7 +31,7 @@ function startGame() {
     start.classList.add('hide');
     gameArea.innerHTML = '';
 
-    for (let i = 0; i < getQuantityElements(100); i++){
+    for (let i = 0; i < getQuantityElements(100) +1; i++){
         const line = document.createElement('div');
         line.classList.add('line');
         line.style.top = (i * 100) + 'px';
@@ -87,11 +87,17 @@ function playGame() {
 }
 function startRun(event) {
     event.preventDefault();
+    if (keys.hasOwnProperty(event.key)){ //avoid other keys pressing
+        keys[event.key] = true;
+    }
     keys[event.key] = true;
 }
 
 function stopRun(event) {
     event.preventDefault();
+    if (keys.hasOwnProperty(event.key)){//avoid other ke
+        keys[event.key] = false;
+    }
     keys[event.key] = false;
 }
 
