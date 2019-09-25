@@ -128,8 +128,8 @@ function moveEnemy() {
         }
         item.y += setting.speed / 2;
         item.style.top = item.y + 'px';
-        if (item.y >= document.documentElement.clientHeight) {
-            item.y = -100 * setting.traffic;
+        if (item.y >= document.documentElement.clientHeight) {//esli mashinka uehala dalshe visoti ecrana
+            item.y = -100 * setting.traffic;//opusti mashinku na -100*3 px
             item.style.left = Math.floor(Math.random() * (gameArea.offsetWidth - 50)) + 'px';
         }
     });
