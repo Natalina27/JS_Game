@@ -49,6 +49,7 @@ function startGame() {
 
     }
 
+    setting.score = 0;
     setting.start = true;
     gameArea.appendChild(car);
     setting.x = car.offsetLeft;
@@ -56,6 +57,8 @@ function startGame() {
     requestAnimationFrame(playGame);
 }
 function playGame() {
+    setting.score += setting.speed;
+    score.textContent = setting.score;
     moveRoad();
     moveEnemy();
     if(setting.start){
