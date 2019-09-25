@@ -29,6 +29,8 @@ function getQuantityElements(heightElement) {
 
 function startGame() {
     start.classList.add('hide');
+    gameArea.innerHTML = '';
+
     for (let i = 0; i < getQuantityElements(100); i++){
         const line = document.createElement('div');
         line.classList.add('line');
@@ -52,13 +54,16 @@ function startGame() {
     setting.score = 0;
     setting.start = true;
     gameArea.appendChild(car);
+    car.style.left = '125px';//gameArea.offsetWidth/2 - car.offsetWidth/2
+    car.style.top = 'auto';
+    car.style.bottom = '10px';
     setting.x = car.offsetLeft;
     setting.y = car.offsetTop;
     requestAnimationFrame(playGame);
 }
 function playGame() {
     setting.score += setting.speed;
-    score.textContent = setting.score;
+    score.innerHTML = 'SCORE<br>' + setting.score;
     moveRoad();
     moveEnemy();
     if(setting.start){
@@ -112,6 +117,8 @@ function moveEnemy() {
             carRect.left <= enemyRect.right &&
             carRect.bottom >= enemyRect.top){
             setting.start = false;
+            start.classList.remove('hide');
+            score.style.top = start.offsetHeight;//scores after accident
         }
         item.y += setting.speed / 2;
         item.style.top = item.y + 'px';
