@@ -1,7 +1,8 @@
 const score = document.querySelector('.score'),
     start = document.querySelector('.start'),
     gameArea = document.querySelector('.gameArea'),
-    car = document.createElement('div');
+    car = document.createElement('div'),
+    music = document.createElement('audio');
 
 car.classList.add('car');
 
@@ -54,6 +55,8 @@ function startGame() {
     setting.score = 0;
     setting.start = true;
     gameArea.appendChild(car);
+    music.setAttribute('autoplay', true);
+    music.setAttribute('src', 'audio.mp3');
     car.style.left = '125px';//gameArea.offsetWidth/2 - car.offsetWidth/2
     car.style.top = 'auto';
     car.style.bottom = '10px';
