@@ -24,7 +24,7 @@ const setting = {
 };
 
 function getQuantityElements(heightElement) {
-    return document.documentElement.clientHeight/heightElement + 1;
+    return document.documentElement.clientHeight / heightElement + 1;
 }
 
 function startGame() {
@@ -39,11 +39,12 @@ function startGame() {
 
     for (let i = 0; i < getQuantityElements(100 * setting.traffic); i++){
     const enemy = document.createElement('div');
+    let enemyImg = Math.floor(Math.random()*2) + 1;
     enemy.classList.add('enemy');
     enemy.y = -100 * setting.traffic * (i + 1);
     enemy.style.left = Math.floor(Math.random() * (gameArea.offsetWidth - 50)) + 'px';
     enemy.style.top = enemy.y + 'px';
-    enemy.style.background = 'transparent url("image/enemy.png")  center / cover no-repeat';
+    enemy.style.background = `transparent url("image/enemy${enemyImg}.png")  center / cover no-repeat`;
     gameArea.appendChild(enemy);
 
     }
@@ -100,6 +101,15 @@ function moveRoad() {
 function moveEnemy() {
     let enemy = document.querySelectorAll('.enemy');
     enemy.forEach(function (item) {
+        let carRect = car.getBoundingClientRect();
+        let enemyRect = item.getBoundingClientRect();
+
+        if (carRect.top <= enemyRect.bottom &&
+            carRect.right >= enemyRect.left &&
+            carRect.left <= enemyRect.right &&
+            carRect.bottom >= enemyRect.top){
+            setting.start = false;
+        }
         item.y += setting.speed / 2;
         item.style.top = item.y + 'px';
         if (item.y >= document.documentElement.clientHeight) {

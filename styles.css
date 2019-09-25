@@ -58,7 +58,7 @@ table {
 
 .gameArea{
     width: 300px;
-    height: 1000px; /*100% doesnt work . I dont know why.....*/
+    height: 850px;
     position: relative;
     margin: auto;
     background: #222;
